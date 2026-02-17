@@ -41,7 +41,7 @@ function calculateResult() {
             return;
     }
 
-    // Update DOM with Result [cite: 85]
+    // Update DOM with Result 
     // round to 2 decimals if it's a long float
     const displayResult = Number.isInteger(result) ? result : result.toFixed(2);
     resultText.innerText = `Result: ${displayResult}`;
@@ -61,4 +61,5 @@ function calculateResult() {
     
     // Ensure display is block (in case it was hidden by error previously)
     resultBox.style.display = 'block';
+
 }
