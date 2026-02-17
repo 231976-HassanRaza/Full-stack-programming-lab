@@ -1,6 +1,6 @@
 // Function to handle adding colors [cite: 97]
 function addColors() {
-    // 1. Get input elements
+    // Get input elements
     const inputs = [
         document.getElementById('color1'),
         document.getElementById('color2'),
@@ -9,7 +9,7 @@ function addColors() {
     
     const container = document.getElementById('box-container');
 
-    // 2. Loop through inputs to create boxes
+    // Loop through inputs to create boxes
     inputs.forEach(input => {
         const colorValue = input.value.trim();
 
@@ -19,7 +19,7 @@ function addColors() {
         }
     });
 
-    // 3. Update BOM Info (Bonus)
+    // Update BOM Info (Bonus)
     updateWindowInfo();
 }
 
@@ -67,4 +67,5 @@ function updateWindowInfo() {
 updateWindowInfo();
 
 // Update BOM info whenever the browser is resized (Event Handling)
+
 window.onresize = updateWindowInfo;
