@@ -1,5 +1,5 @@
 function validateForm() {
-    // 1. Get input values and elements
+    // Get input values and elements
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const ageInput = document.getElementById('age');
@@ -18,7 +18,7 @@ function validateForm() {
 
     let isValid = true;
 
-    // 2. Validation Logic (Conditional Statements)
+    // Validation Logic (Conditional Statements)
 
     // Name Validation: Should not be empty [cite: 103]
     if (name === "") {
@@ -45,7 +45,7 @@ function validateForm() {
         isValid = false;
     }
 
-    // 3. Final Check
+    // Final Check
     if (isValid) {
         // Show success message dynamically [cite: 107]
         successBox.classList.remove('hidden');
@@ -88,4 +88,5 @@ function clearErrors() {
     // Clear text from error messages
     const errorMsgs = document.querySelectorAll('.error-msg');
     errorMsgs.forEach(msg => msg.innerText = "");
+
 }
