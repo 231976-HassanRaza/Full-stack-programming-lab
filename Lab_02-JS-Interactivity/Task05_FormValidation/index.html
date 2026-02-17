@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02: Task 5 - Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-card">
+        <h1>Registration Form</h1>
+        <p class="subtitle">Please fill in your details below</p>
+
+        <form id="regForm" onsubmit="event.preventDefault(); validateForm();">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Hassan Raza">
+                <small class="error-msg" id="error-name"></small>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" placeholder="HassanRaza@example.com">
+                <small class="error-msg" id="error-email"></small>
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age (18-60)</label>
+                <input type="number" id="age" placeholder="25">
+                <small class="error-msg" id="error-age"></small>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="******">
+                <small class="error-msg" id="error-password"></small>
+            </div>
+
+            <button type="submit" class="btn-submit">Register</button>
+        </form>
+
+        <div id="success-box" class="hidden">
+            ✅ Registration Successful!
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

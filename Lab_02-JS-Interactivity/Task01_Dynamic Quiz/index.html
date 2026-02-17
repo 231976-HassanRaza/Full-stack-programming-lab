@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Dynamic Quiz</h1>
+        <form id="quizForm">
+            <div class="question-box">
+                <span class="question-title">1. Which tag is used for internal JavaScript?</span>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="js"> &lt;js&gt;</label>
+                    <label><input type="radio" name="q1" value="script"> &lt;script&gt;</label>
+                    <label><input type="radio" name="q1" value="javascript"> &lt;javascript&gt;</label>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <span class="question-title">2. How do you declare a block-scoped variable?</span>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="var"> var</label>
+                    <label><input type="radio" name="q2" value="let"> let</label>
+                    <label><input type="radio" name="q2" value="const"> constant</label>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <span class="question-title">3. What does DOM stand for?</span>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="data"> Data Object Model</label>
+                    <label><input type="radio" name="q3" value="doc"> Document Object Model</label>
+                    <label><input type="radio" name="q3" value="disk"> Disk Operating Model</label>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" id="submit-btn" onclick="calculateScore()">Submit Answers</button>
+                <button type="button" id="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+        </form>
+
+        <div id="result-area"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

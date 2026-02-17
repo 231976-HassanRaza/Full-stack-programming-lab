@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="todo-container">
+        <h1>My To-Do List</h1>
+        <p class="subtitle">Manage your daily tasks efficiently</p>
+
+        <div class="task-row" id="task1">
+            <input type="text" value="Complete Lab 02 Report" class="task-input">
+            <div class="actions">
+                <button class="btn-complete">Complete</button>
+                <button class="btn-remove">Remove</button>
+            </div>
+        </div>
+
+        <div class="task-row" id="task2">
+            <input type="text" value="Push code to GitHub" class="task-input">
+            <div class="actions">
+                <button class="btn-complete">Complete</button>
+                <button class="btn-remove">Remove</button>
+            </div>
+        </div>
+
+        <div class="task-row" id="task3">
+            <input type="text" value="Review JavaScript DOM" class="task-input">
+            <div class="actions">
+                <button class="btn-complete">Complete</button>
+                <button class="btn-remove">Remove</button>
+            </div>
+        </div>
+
+        <button onclick="resetTasks()" class="btn-reset">Reset List</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
