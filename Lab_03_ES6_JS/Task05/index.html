@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 5: Product Catalog using Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h2>🛒 Product Catalog</h2>
+            <p>Managing inventory using ES6 Map</p>
+        </header>
+
+        <div class="stats-section">
+            <strong>Total Products: </strong>
+            <span id="product-count" class="badge">0</span>
+        </div>
+        
+        <div class="input-section">
+            <input type="number" id="search-id" placeholder="Enter Product ID to search...">
+            <button id="search-btn" class="action-btn">Search</button>
+        </div>
+
+        <div id="message-box" class="message-box"></div>
+        
+        <div class="catalog-header">Current Inventory</div>
+        <ul id="product-list" class="product-list">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

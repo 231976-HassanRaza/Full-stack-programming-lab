@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 6: Mini University Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="portal-container">
+        <header>
+            <h2>🏛️ Mini University Portal</h2>
+            <p>Combining ES6 Class, Map, Set, and Promises</p>
+        </header>
+
+        <div class="panels-wrapper">
+            <div class="panel">
+                <h3>1. Add Student</h3>
+                <input type="number" id="student-id" placeholder="Enter Student ID...">
+                <input type="text" id="student-name" placeholder="Enter Student Name...">
+                <button id="add-student-btn" class="primary-btn">Add Student</button>
+            </div>
+
+            <div class="panel">
+                <h3>2. Register Course</h3>
+                <input type="number" id="enroll-id" placeholder="Student ID...">
+                <input type="text" id="course-name" placeholder="Course Name...">
+                <button id="register-course-btn" class="secondary-btn">Add Course</button>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="save-data-btn" class="save-btn">💾 Save Portal Data</button>
+        </div>
+
+        <div id="message-box" class="message-box"></div>
+
+        <div class="database-section">
+            <h3>Registered Students Data</h3>
+            <ul id="students-list" class="students-list">
+                </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

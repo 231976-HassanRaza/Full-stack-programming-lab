@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 4: Unique Course Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h2>🎓 Course Registration</h2>
+            <p>Unique Course System using ES6 Set</p>
+        </header>
+        
+        <div class="input-section">
+            <input type="text" id="course-input" placeholder="Enter course name (e.g. Data Structures)...">
+            <button id="add-btn">Add Course</button>
+        </div>
+
+        <div id="message-box" class="message-box"></div>
+        
+        <div class="stats-section">
+            <strong>Total Unique Courses: </strong>
+            <span id="course-count" class="badge">0</span>
+        </div>
+        
+        <ul id="course-list" class="course-list">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
