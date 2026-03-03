@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 3 – Interactive Form Validation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Page Header -->
+  <header>
+    <div class="badge"><span class="badge-dot"></span> Lab 04 · Task 03 · jQuery</div>
+    <h1>Interactive <em>Form</em> Validation</h1>
+    <p class="subtitle">Event Handling · CSS Manipulation · DOM Manipulation</p>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Progress Indicator -->
+    <div class="progress-wrap">
+      <div class="progress-steps">
+        <div class="step active" id="step-indicator-1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Personal</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-indicator-2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Account</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-indicator-3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Done</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+
+      <!-- ── Success Screen (hidden initially) ── -->
+      <div id="successScreen" class="success-screen" style="display:none;">
+        <div class="success-icon-wrap">
+          <div class="success-ring"></div>
+          <span class="success-icon">✓</span>
+        </div>
+        <h2 class="success-title">You're all set!</h2>
+        <p class="success-msg">Your account has been created successfully.<br/>Welcome aboard!</p>
+        <div class="success-summary" id="successSummary"></div>
+        <button class="btn-reset" id="resetBtn">Start Over</button>
+      </div>
+
+      <!-- ── Step 1: Personal Info ── -->
+      <div id="step1" class="form-step">
+        <div class="step-header">
+          <span class="step-tag">Step 1 of 2</span>
+          <h2 class="step-title">Personal Information</h2>
+          <p class="step-desc">Tell us a bit about yourself.</p>
+        </div>
+
+        <div class="field-group">
+          <!-- Full Name -->
+          <div class="field" id="field-name">
+            <label class="field-label" for="fullName">
+              Full Name
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">👤</span>
+              <input type="text" id="fullName" class="field-input" placeholder="e.g. Ali Hassan" autocomplete="off"/>
+              <span class="status-icon" id="status-name"></span>
+            </div>
+            <p class="error-msg" id="err-name"></p>
+          </div>
+
+          <!-- Email -->
+          <div class="field" id="field-email">
+            <label class="field-label" for="email">
+              Email Address
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">✉️</span>
+              <input type="email" id="email" class="field-input" placeholder="you@example.com" autocomplete="off"/>
+              <span class="status-icon" id="status-email"></span>
+            </div>
+            <p class="error-msg" id="err-email"></p>
+          </div>
+
+          <!-- Phone -->
+          <div class="field" id="field-phone">
+            <label class="field-label" for="phone">
+              Phone Number
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">📱</span>
+              <input type="tel" id="phone" class="field-input" placeholder="03XX-XXXXXXX" autocomplete="off"/>
+              <span class="status-icon" id="status-phone"></span>
+            </div>
+            <p class="error-msg" id="err-phone"></p>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <span class="required-note"><span class="required">*</span> Required fields</span>
+          <button class="btn-next" id="nextBtn">
+            Next Step
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Step 2: Account Info ── -->
+      <div id="step2" class="form-step" style="display:none;">
+        <div class="step-header">
+          <span class="step-tag">Step 2 of 2</span>
+          <h2 class="step-title">Account Setup</h2>
+          <p class="step-desc">Create your login credentials.</p>
+        </div>
+
+        <div class="field-group">
+          <!-- Username -->
+          <div class="field" id="field-username">
+            <label class="field-label" for="username">
+              Username
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">🏷️</span>
+              <input type="text" id="username" class="field-input" placeholder="min 4 characters" autocomplete="off"/>
+              <span class="status-icon" id="status-username"></span>
+            </div>
+            <p class="error-msg" id="err-username"></p>
+          </div>
+
+          <!-- Password -->
+          <div class="field" id="field-password">
+            <label class="field-label" for="password">
+              Password
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">🔒</span>
+              <input type="password" id="password" class="field-input" placeholder="min 8 characters" autocomplete="off"/>
+              <span class="status-icon" id="status-password"></span>
+              <button type="button" class="toggle-pw" id="togglePw" tabindex="-1">👁</button>
+            </div>
+            <!-- Strength meter -->
+            <div class="strength-wrap" id="strengthWrap">
+              <div class="strength-bar">
+                <div class="strength-fill" id="strengthFill"></div>
+              </div>
+              <span class="strength-label" id="strengthLabel"></span>
+            </div>
+            <p class="error-msg" id="err-password"></p>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="field" id="field-confirm">
+            <label class="field-label" for="confirmPw">
+              Confirm Password
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrap">
+              <span class="field-icon">🔑</span>
+              <input type="password" id="confirmPw" class="field-input" placeholder="re-enter your password" autocomplete="off"/>
+              <span class="status-icon" id="status-confirm"></span>
+            </div>
+            <p class="error-msg" id="err-confirm"></p>
+          </div>
+
+          <!-- Terms checkbox -->
+          <div class="field" id="field-terms">
+            <div class="checkbox-row">
+              <input type="checkbox" id="terms" class="checkbox-input"/>
+              <label for="terms" class="checkbox-label">
+                I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+              </label>
+            </div>
+            <p class="error-msg" id="err-terms"></p>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button class="btn-back" id="backBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+          </button>
+          <button class="btn-submit" id="submitBtn">
+            Create Account 🚀
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /.form-card -->
+  </div><!-- /.container -->
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 4 – Tabbed Content with Smooth Scroll</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <!-- Decorative background -->
+  <div class="bg-deco">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ── HERO SECTION ── -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="badge"><span class="badge-dot"></span> Lab 04 · Task 04 · jQuery</div>
+      <h1>Tabbed Content<br/><em>with Smooth Scroll</em></h1>
+      <p class="hero-sub">DOM Manipulation · Effects &amp; Animations · Event Handling</p>
+      <p class="hero-desc">
+        Click any tab to reveal its content and watch the page smoothly
+        scroll you right to it — powered entirely by jQuery.
+      </p>
+      <a href="#tab-section" class="scroll-cta" id="heroScrollBtn">
+        Explore Tabs
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card fc-1">
+        <span class="fc-icon">🎨</span>
+        <span class="fc-label">Design</span>
+      </div>
+      <div class="floating-card fc-2">
+        <span class="fc-icon">⚡</span>
+        <span class="fc-label">jQuery</span>
+      </div>
+      <div class="floating-card fc-3">
+        <span class="fc-icon">📱</span>
+        <span class="fc-label">Responsive</span>
+      </div>
+      <div class="floating-card fc-4">
+        <span class="fc-icon">✨</span>
+        <span class="fc-label">Animated</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TAB SECTION ── -->
+  <section class="tab-section" id="tab-section">
+    <div class="section-intro">
+      <h2 class="section-title">Browse the <em>Topics</em></h2>
+      <p class="section-sub">Five curated sections — click a tab to dive in.</p>
+    </div>
+
+    <!-- Sticky Tab Navigation -->
+    <div class="tab-nav-wrap" id="tabNavWrap">
+      <div class="tab-nav" id="tabNav" role="tablist">
+        <button class="tab-btn active" data-tab="design"        role="tab" aria-selected="true">
+          <span class="tab-icon">🎨</span><span class="tab-text">Design</span>
+        </button>
+        <button class="tab-btn"        data-tab="development"   role="tab">
+          <span class="tab-icon">💻</span><span class="tab-text">Development</span>
+        </button>
+        <button class="tab-btn"        data-tab="performance"   role="tab">
+          <span class="tab-icon">⚡</span><span class="tab-text">Performance</span>
+        </button>
+        <button class="tab-btn"        data-tab="accessibility" role="tab">
+          <span class="tab-icon">♿</span><span class="tab-text">Accessibility</span>
+        </button>
+        <button class="tab-btn"        data-tab="deployment"    role="tab">
+          <span class="tab-icon">🚀</span><span class="tab-text">Deployment</span>
+        </button>
+        <!-- Sliding ink bar -->
+        <div class="tab-ink" id="tabInk"></div>
+      </div>
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="tab-panels" id="tabPanels">
+
+      <!-- Design -->
+      <div class="tab-panel active" id="panel-design" role="tabpanel">
+        <div class="panel-hero" style="--panel-color:#f97316; --panel-lt:#fff7ed;">
+          <div class="panel-icon-big">🎨</div>
+          <div class="panel-hero-text">
+            <h3 class="panel-title">UI / UX Design</h3>
+            <p class="panel-lead">Great design is invisible — it guides users effortlessly toward their goals.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="cards-grid">
+            <div class="info-card" style="--c:#f97316;">
+              <div class="info-card-icon">🖌️</div>
+              <h4>Visual Hierarchy</h4>
+              <p>Use size, contrast and spacing to lead the eye naturally through your layout.</p>
+            </div>
+            <div class="info-card" style="--c:#ec4899;">
+              <div class="info-card-icon">🎭</div>
+              <h4>Colour Theory</h4>
+              <p>Harmonious palettes evoke emotion and reinforce brand personality.</p>
+            </div>
+            <div class="info-card" style="--c:#8b5cf6;">
+              <div class="info-card-icon">🔤</div>
+              <h4>Typography</h4>
+              <p>Font pairing and line-height choices dramatically affect readability and tone.</p>
+            </div>
+            <div class="info-card" style="--c:#0ea5e9;">
+              <div class="info-card-icon">📐</div>
+              <h4>Grid Systems</h4>
+              <p>Consistent grids create rhythm and make responsive layouts predictable.</p>
+            </div>
+          </div>
+          <div class="panel-quote">
+            <blockquote>"Design is not just what it looks like — design is how it works."</blockquote>
+            <cite>— Steve Jobs</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Development -->
+      <div class="tab-panel" id="panel-development" role="tabpanel" style="display:none;">
+        <div class="panel-hero" style="--panel-color:#6366f1; --panel-lt:#eef2ff;">
+          <div class="panel-icon-big">💻</div>
+          <div class="panel-hero-text">
+            <h3 class="panel-title">Web Development</h3>
+            <p class="panel-lead">The art of turning designs into fast, interactive, living experiences on the web.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="cards-grid">
+            <div class="info-card" style="--c:#6366f1;">
+              <div class="info-card-icon">🏗️</div>
+              <h4>HTML Structure</h4>
+              <p>Semantic markup provides meaning to content and improves SEO and accessibility.</p>
+            </div>
+            <div class="info-card" style="--c:#0ea5e9;">
+              <div class="info-card-icon">💅</div>
+              <h4>CSS Styling</h4>
+              <p>Modern CSS features like Grid, Flexbox, and custom properties unlock powerful layouts.</p>
+            </div>
+            <div class="info-card" style="--c:#10b981;">
+              <div class="info-card-icon">⚙️</div>
+              <h4>JavaScript</h4>
+              <p>Adds interactivity, handles events, and communicates with back-end APIs seamlessly.</p>
+            </div>
+            <div class="info-card" style="--c:#f59e0b;">
+              <div class="info-card-icon">📦</div>
+              <h4>jQuery</h4>
+              <p>A concise library that simplifies DOM traversal, animation, and AJAX operations.</p>
+            </div>
+          </div>
+          <div class="panel-quote">
+            <blockquote>"First, solve the problem. Then, write the code."</blockquote>
+            <cite>— John Johnson</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance -->
+      <div class="tab-panel" id="panel-performance" role="tabpanel" style="display:none;">
+        <div class="panel-hero" style="--panel-color:#10b981; --panel-lt:#ecfdf5;">
+          <div class="panel-icon-big">⚡</div>
+          <div class="panel-hero-text">
+            <h3 class="panel-title">Web Performance</h3>
+            <p class="panel-lead">Every millisecond counts — fast pages delight users and win on search rankings.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="stats-row">
+            <div class="stat-pill" style="--c:#10b981;">
+              <span class="stat-num">53%</span>
+              <span class="stat-desc">of users abandon a page that takes over 3 seconds to load</span>
+            </div>
+            <div class="stat-pill" style="--c:#0ea5e9;">
+              <span class="stat-num">1s</span>
+              <span class="stat-desc">improvement in load time can boost conversions by up to 27%</span>
+            </div>
+            <div class="stat-pill" style="--c:#f59e0b;">
+              <span class="stat-num">3×</span>
+              <span class="stat-desc">more likely to bounce from a slow mobile site than a fast one</span>
+            </div>
+          </div>
+          <div class="cards-grid">
+            <div class="info-card" style="--c:#10b981;">
+              <div class="info-card-icon">🗜️</div>
+              <h4>Asset Compression</h4>
+              <p>Minify CSS/JS and use WebP images to slash file sizes dramatically.</p>
+            </div>
+            <div class="info-card" style="--c:#6366f1;">
+              <div class="info-card-icon">🔀</div>
+              <h4>Lazy Loading</h4>
+              <p>Defer off-screen resources until they're needed to speed up initial paint.</p>
+            </div>
+          </div>
+          <div class="panel-quote">
+            <blockquote>"Performance is a feature — treat it as one from day one."</blockquote>
+            <cite>— Paul Irish</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessibility -->
+      <div class="tab-panel" id="panel-accessibility" role="tabpanel" style="display:none;">
+        <div class="panel-hero" style="--panel-color:#ec4899; --panel-lt:#fdf2f8;">
+          <div class="panel-icon-big">♿</div>
+          <div class="panel-hero-text">
+            <h3 class="panel-title">Accessibility</h3>
+            <p class="panel-lead">The web is for everyone — building accessibly is both ethical and smart.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="checklist">
+            <div class="check-item done">
+              <span class="check-tick">✓</span>
+              <div>
+                <strong>Semantic HTML</strong>
+                <p>Use proper elements like &lt;button&gt;, &lt;nav&gt;, &lt;main&gt; so screen readers understand structure.</p>
+              </div>
+            </div>
+            <div class="check-item done">
+              <span class="check-tick">✓</span>
+              <div>
+                <strong>Keyboard Navigation</strong>
+                <p>Every interactive element must be reachable and operable via keyboard alone.</p>
+              </div>
+            </div>
+            <div class="check-item done">
+              <span class="check-tick">✓</span>
+              <div>
+                <strong>Colour Contrast</strong>
+                <p>Text must meet WCAG AA contrast ratios — at least 4.5:1 for normal text.</p>
+              </div>
+            </div>
+            <div class="check-item done">
+              <span class="check-tick">✓</span>
+              <div>
+                <strong>ARIA Roles &amp; Labels</strong>
+                <p>Supplement HTML with ARIA only when native semantics aren't enough.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-quote">
+            <blockquote>"Accessibility allows us to tap into everyone's potential."</blockquote>
+            <cite>— Debra Ruh</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment -->
+      <div class="tab-panel" id="panel-deployment" role="tabpanel" style="display:none;">
+        <div class="panel-hero" style="--panel-color:#0891b2; --panel-lt:#ecfeff;">
+          <div class="panel-icon-big">🚀</div>
+          <div class="panel-hero-text">
+            <h3 class="panel-title">Deployment</h3>
+            <p class="panel-lead">Ship confidently with modern CI/CD pipelines and cloud hosting platforms.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="pipeline">
+            <div class="pipe-step" style="--c:#6366f1;">
+              <div class="pipe-num">01</div>
+              <div class="pipe-content">
+                <strong>Code &amp; Commit</strong>
+                <p>Push changes to a feature branch and open a pull request for review.</p>
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step" style="--c:#10b981;">
+              <div class="pipe-num">02</div>
+              <div class="pipe-content">
+                <strong>CI / Tests</strong>
+                <p>Automated tests run on every push — catch bugs before they reach production.</p>
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step" style="--c:#f59e0b;">
+              <div class="pipe-num">03</div>
+              <div class="pipe-content">
+                <strong>Build</strong>
+                <p>Bundle, minify and optimise assets for the production environment.</p>
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-step" style="--c:#0891b2;">
+              <div class="pipe-num">04</div>
+              <div class="pipe-content">
+                <strong>Deploy 🚀</strong>
+                <p>Zero-downtime deploy to Vercel, Netlify, or any cloud provider of choice.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-quote">
+            <blockquote>"Release early, release often — and listen to your users."</blockquote>
+            <cite>— Eric Raymond</cite>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.tab-panels -->
+  </section>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

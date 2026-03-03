@@ -1,0 +1,461 @@
+/* ============================================================
+   Task 1 – Dynamic List Manager | style.css
+   Theme: Amber / Yellow
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --bg:         #fffbeb;
+  --surface:    #ffffff;
+  --card:       #ffffff;
+  --accent:     #d97706;
+  --accent-lt:  #fef3c7;
+  --accent-mid: #f59e0b;
+  --accent2:    #f97316;
+  --green:      #10b981;
+  --red:        #ef4444;
+  --text:       #1c1205;
+  --body:       #44403c;
+  --muted:      #a8a29e;
+  --border:     #fde68a;
+  --border-soft:#fef3c7;
+  --shadow-sm:  0 1px 3px rgba(217,119,6,.10), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg:  0 12px 40px rgba(217,119,6,.18), 0 4px 12px rgba(0,0,0,.06);
+  --radius:     16px;
+}
+
+/* ── Base ── */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px 80px;
+}
+
+/* ── Animated Blob Background ── */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .5;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+.blob-1 { width: 440px; height: 440px; background: #fde68a; top: -110px; left: -90px;  animation-delay: 0s; }
+.blob-2 { width: 340px; height: 340px; background: #fed7aa; top: 30%;    right: -70px; animation-delay: -4s; }
+.blob-3 { width: 300px; height: 300px; background: #fef08a; bottom: -60px; left: 28%;  animation-delay: -8s; }
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 20px) scale(1.08); }
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-lt);
+  color: var(--accent);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  letter-spacing: .5px;
+  padding: 5px 14px;
+  margin-bottom: 18px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: .5; }
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  line-height: 1;
+  color: var(--text);
+}
+
+h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .2px;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Stats Row ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-top: 2px;
+}
+
+#stat-added   .stat-value { color: var(--accent); }
+#stat-current .stat-value { color: var(--green); }
+#stat-removed .stat-value { color: var(--red); }
+
+/* ── Main Card ── */
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Input Row ── */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+#itemInput {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  padding: 13px 16px 13px 42px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+#itemInput::placeholder { color: var(--muted); }
+
+#itemInput:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(217,119,6,.12);
+}
+
+#itemInput.shake {
+  animation: shake .4s ease;
+  border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(239,68,68,.1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60%  { transform: translateX(-6px); }
+  40%, 80%  { transform: translateX(6px); }
+}
+
+/* ── Add Button ── */
+#addBtn {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: 11px;
+  padding: 13px 22px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(217,119,6,.38);
+  transition: transform .15s, box-shadow .15s, filter .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217,119,6,.50);
+  filter: brightness(1.06);
+}
+
+#addBtn:active { transform: translateY(0); }
+
+/* ── Section Header ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ── Clear All Button ── */
+#clearBtn {
+  background: none;
+  border: 1.5px solid #fca5a5;
+  color: var(--red);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  display: none;
+}
+
+#clearBtn:hover {
+  background: #fef2f2;
+  transform: scale(1.03);
+}
+
+/* ── Empty State ── */
+#emptyState {
+  text-align: center;
+  padding: 44px 20px;
+  list-style: none;
+}
+
+.empty-illustration {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(217,119,6,.18);
+}
+
+#emptyState p {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+#emptyState small {
+  font-size: 12px;
+  color: #d1d5db;
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ── Item List ── */
+#itemList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── List Item ── */
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fffdf7;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 14px;
+  cursor: default;
+  transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
+  animation: popIn .35s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.list-item:hover {
+  background: var(--accent-lt);
+  border-color: #fcd34d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,119,6,.14);
+}
+
+.list-item.highlighted {
+  background: var(--accent-lt);
+  border-color: #fbbf24;
+}
+
+/* ── Item Number Chip ── */
+.item-chip {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* Colorful cycling chips — amber-toned palette */
+.list-item:nth-child(6n+1) .item-chip { background: #fef3c7; color: #d97706; }
+.list-item:nth-child(6n+2) .item-chip { background: #ecfdf5; color: #059669; }
+.list-item:nth-child(6n+3) .item-chip { background: #fff7ed; color: #ea580c; }
+.list-item:nth-child(6n+4) .item-chip { background: #fdf4ff; color: #9333ea; }
+.list-item:nth-child(6n+5) .item-chip { background: #fef9c3; color: #ca8a04; }
+.list-item:nth-child(6n+6) .item-chip { background: #ffe4e6; color: #be123c; }
+
+/* ── Item Text ── */
+.item-text {
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--body);
+  line-height: 1.4;
+}
+
+/* ── Delete Button ── */
+.delete-btn {
+  background: #fff;
+  border: 1.5px solid #fca5a5;
+  color: var(--red);
+  border-radius: 8px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .15s, box-shadow .15s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  background: #fef2f2;
+  transform: scale(1.06);
+  box-shadow: 0 2px 8px rgba(239,68,68,.2);
+}
+
+/* ── Toast Notification ── */
+#toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: #1c1205;
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 32px rgba(28,18,5,.28);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 200;
+  transition: opacity .25s, transform .25s;
+  white-space: nowrap;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .card       { padding: 20px 16px; }
+  .input-row  { flex-direction: column; }
+  #addBtn     { justify-content: center; }
+  .stat-card  { padding: 10px 8px; }
+  .stat-value { font-size: 18px; }
+}

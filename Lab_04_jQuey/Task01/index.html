@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 1 – Dynamic List Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <!-- Amber theme active -->
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Page Header -->
+  <header>
+    <div class="badge"><span class="badge-dot"></span> Lab 04 · Task 01 · jQuery</div>
+    <h1>Dynamic <em>List</em> Manager</h1>
+    <p class="subtitle">DOM Manipulation · Event Handling · CSS Manipulation</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card" id="stat-added">
+        <div class="stat-value" id="totalAdded">0</div>
+        <div class="stat-label">Added</div>
+      </div>
+      <div class="stat-card" id="stat-current">
+        <div class="stat-value" id="currentCount">0</div>
+        <div class="stat-label">Current</div>
+      </div>
+      <div class="stat-card" id="stat-removed">
+        <div class="stat-value" id="totalRemoved">0</div>
+        <div class="stat-label">Removed</div>
+      </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card">
+
+      <!-- Input Row -->
+      <div class="input-row">
+        <div class="input-wrap">
+          <span class="input-icon">✏️</span>
+          <input type="text" id="itemInput" placeholder="Add a new item here…" maxlength="80" autocomplete="off"/>
+        </div>
+        <button id="addBtn">＋ Add Item</button>
+      </div>
+
+      <!-- List Header -->
+      <div class="section-header">
+        <span class="section-label">Your List</span>
+        <button id="clearBtn">🗑 Clear All</button>
+      </div>
+
+      <!-- Item List -->
+      <ul id="itemList">
+        <li id="emptyState">
+          <div class="empty-illustration">📋</div>
+          <p>Your list is empty!</p>
+          <small>Type something above and press Add or Enter</small>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
