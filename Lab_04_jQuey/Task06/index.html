@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 6 – API Data Fetcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="bg-deco">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <header>
+    <div class="badge"><span class="badge-dot"></span>Task 06 · jQuery Ajax</div>
+    <h1>API Data <em>Fetcher</em></h1>
+    <p class="subtitle">Ajax · DOM Manipulation · Event Handling</p>
+    <p class="hero-desc">Fetch live data from JSONPlaceholder API. Switch endpoints, search results, and load more — all powered by jQuery Ajax.</p>
+  </header>
+
+  <div class="container">
+
+    <div class="controls-bar">
+      <div class="source-tabs" id="sourceTabs">
+        <button class="source-tab active" data-source="posts"  data-endpoint="https://jsonplaceholder.typicode.com/posts">
+          <span class="tab-icon">📄</span> Posts
+        </button>
+        <button class="source-tab" data-source="users"  data-endpoint="https://jsonplaceholder.typicode.com/users">
+          <span class="tab-icon">👤</span> Users
+        </button>
+        <button class="source-tab" data-source="todos"  data-endpoint="https://jsonplaceholder.typicode.com/todos">
+          <span class="tab-icon">✅</span> Todos
+        </button>
+        <button class="source-tab" data-source="photos" data-endpoint="https://jsonplaceholder.typicode.com/photos">
+          <span class="tab-icon">🖼️</span> Photos
+        </button>
+      </div>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Filter results…" autocomplete="off"/>
+        <button class="clear-search" id="clearSearch" style="display:none;">✕</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-pill"><span class="stat-num" id="statShowing">0</span><span class="stat-lbl">Showing</span></div>
+      <div class="stat-pill"><span class="stat-num" id="statTotal">0</span><span class="stat-lbl">Total</span></div>
+      <div class="stat-pill"><span class="stat-num" id="statSource">Posts</span><span class="stat-lbl">Source</span></div>
+      <div class="stat-pill"><span class="stat-num" id="statStatus">Ready</span><span class="stat-lbl">Status</span></div>
+    </div>
+
+    <div id="loadingState" style="display:none;">
+      <div class="skeleton-grid" id="skeletonGrid"></div>
+    </div>
+
+    <div id="errorState" style="display:none;">
+      <div class="error-box">
+        <div class="error-icon">⚠️</div>
+        <h3 class="error-title">Something went wrong</h3>
+        <p class="error-msg" id="errorMsg">Could not fetch data. Please try again.</p>
+        <button class="btn-retry" id="retryBtn">↺ Retry</button>
+      </div>
+    </div>
+
+    <div id="emptySearch" style="display:none;">
+      <div class="empty-box">
+        <div class="empty-icon">🔍</div>
+        <h3 class="empty-title">No results found</h3>
+        <p class="empty-msg">Try a different search keyword.</p>
+      </div>
+    </div>
+
+    <div class="results-grid" id="resultsGrid"></div>
+
+    <div class="fetch-row">
+      <button class="btn-fetch" id="fetchBtn"><span id="fetchBtnText">⚡ Fetch Posts</span></button>
+      <button class="btn-load-more" id="loadMoreBtn" style="display:none;">
+        Load More <span class="load-more-count" id="loadMoreCount"></span>
+      </button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

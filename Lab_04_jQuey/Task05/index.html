@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 5 - Chained Style Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="bg-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+  <header>
+    <div class="badge"><span class="badge-dot"></span>Task 05 - jQuery</div>
+    <h1>Chained <em>Style</em> Editor</h1>
+    <p class="subtitle">CSS Manipulation · Chaining · Event Handling</p>
+  </header>
+  <div class="container">
+    <div class="preview-card">
+      <div class="preview-label"><span class="dot-live"></span> Live Preview</div>
+      <div class="text-stage" id="textStage">
+        <p id="previewText">The quick brown fox jumps over the lazy dog. Style me however you like — I update live!</p>
+      </div>
+    </div>
+    <div class="panels-grid">
+      <div class="panel" id="panel-size">
+        <div class="panel-header">
+          <span class="panel-icon">🔤</span>
+          <div><h3 class="panel-title">Font Size</h3><p class="panel-desc">Scale text up or down</p></div>
+        </div>
+        <div class="btn-group">
+          <button class="style-btn size-btn" data-size="12">XS<span>12px</span></button>
+          <button class="style-btn size-btn" data-size="16">SM<span>16px</span></button>
+          <button class="style-btn size-btn active" data-size="20">MD<span>20px</span></button>
+          <button class="style-btn size-btn" data-size="28">LG<span>28px</span></button>
+          <button class="style-btn size-btn" data-size="40">XL<span>40px</span></button>
+        </div>
+      </div>
+      <div class="panel" id="panel-color">
+        <div class="panel-header">
+          <span class="panel-icon">🎨</span>
+          <div><h3 class="panel-title">Text Color</h3><p class="panel-desc">Pick a font color</p></div>
+        </div>
+        <div class="color-swatches" id="colorSwatches">
+          <button class="swatch active" data-color="#1a1a2e" style="background:#1a1a2e;" title="Near Black"></button>
+          <button class="swatch" data-color="#dc2626" style="background:#dc2626;" title="Red"></button>
+          <button class="swatch" data-color="#d97706" style="background:#d97706;" title="Amber"></button>
+          <button class="swatch" data-color="#16a34a" style="background:#16a34a;" title="Green"></button>
+          <button class="swatch" data-color="#2563eb" style="background:#2563eb;" title="Blue"></button>
+          <button class="swatch" data-color="#9333ea" style="background:#9333ea;" title="Purple"></button>
+          <button class="swatch" data-color="#db2777" style="background:#db2777;" title="Pink"></button>
+          <button class="swatch" data-color="#0891b2" style="background:#0891b2;" title="Cyan"></button>
+        </div>
+        <div class="custom-color-row">
+          <label class="custom-label" for="customColor">Custom</label>
+          <input type="color" id="customColor" value="#1a1a2e" class="color-picker"/>
+          <span class="color-hex" id="colorHex">#1a1a2e</span>
+        </div>
+      </div>
+      <div class="panel" id="panel-bg">
+        <div class="panel-header">
+          <span class="panel-icon">🖼️</span>
+          <div><h3 class="panel-title">Background</h3><p class="panel-desc">Change text background</p></div>
+        </div>
+        <div class="bg-swatches" id="bgSwatches">
+          <button class="swatch active" data-bg="transparent" style="background: repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%) 0 0 / 12px 12px;" title="None"></button>
+          <button class="swatch" data-bg="#fef9c3" style="background:#fef9c3;" title="Yellow"></button>
+          <button class="swatch" data-bg="#fce7f3" style="background:#fce7f3;" title="Pink"></button>
+          <button class="swatch" data-bg="#dbeafe" style="background:#dbeafe;" title="Blue"></button>
+          <button class="swatch" data-bg="#d1fae5" style="background:#d1fae5;" title="Green"></button>
+          <button class="swatch" data-bg="#ede9fe" style="background:#ede9fe;" title="Violet"></button>
+          <button class="swatch" data-bg="#ffedd5" style="background:#ffedd5;" title="Orange"></button>
+          <button class="swatch" data-bg="#cffafe" style="background:#cffafe;" title="Cyan"></button>
+        </div>
+      </div>
+      <div class="panel" id="panel-style">
+        <div class="panel-header">
+          <span class="panel-icon">✨</span>
+          <div><h3 class="panel-title">Text Style</h3><p class="panel-desc">Toggle bold, italic and more</p></div>
+        </div>
+        <div class="toggle-grid">
+          <button class="toggle-btn" id="toggleBold" data-style="bold"><span class="toggle-icon">B</span><span class="toggle-label">Bold</span></button>
+          <button class="toggle-btn" id="toggleItalic" data-style="italic"><span class="toggle-icon" style="font-style:italic;">I</span><span class="toggle-label">Italic</span></button>
+          <button class="toggle-btn" id="toggleUnderline" data-style="underline"><span class="toggle-icon" style="text-decoration:underline;">U</span><span class="toggle-label">Underline</span></button>
+          <button class="toggle-btn" id="toggleStrike" data-style="strike"><span class="toggle-icon" style="text-decoration:line-through;">S</span><span class="toggle-label">Strike</span></button>
+          <button class="toggle-btn" id="toggleUpper" data-style="upper"><span class="toggle-icon">AA</span><span class="toggle-label">CAPS</span></button>
+          <button class="toggle-btn" id="toggleShadow" data-style="shadow"><span class="toggle-icon">💡</span><span class="toggle-label">Shadow</span></button>
+        </div>
+      </div>
+      <div class="panel" id="panel-align">
+        <div class="panel-header">
+          <span class="panel-icon">📐</span>
+          <div><h3 class="panel-title">Alignment</h3><p class="panel-desc">Set text alignment</p></div>
+        </div>
+        <div class="btn-group">
+          <button class="style-btn align-btn active" data-align="left">Left</button>
+          <button class="style-btn align-btn" data-align="center">Center</button>
+          <button class="style-btn align-btn" data-align="right">Right</button>
+          <button class="style-btn align-btn" data-align="justify">Justify</button>
+        </div>
+      </div>
+      <div class="panel" id="panel-spacing">
+        <div class="panel-header">
+          <span class="panel-icon">↔️</span>
+          <div><h3 class="panel-title">Letter Spacing</h3><p class="panel-desc">Control character spacing</p></div>
+        </div>
+        <div class="slider-wrap">
+          <input type="range" id="spacingSlider" min="-2" max="12" value="0" step="0.5" class="slider"/>
+          <div class="slider-labels">
+            <span>Tight</span>
+            <span class="slider-val" id="spacingVal">0px</span>
+            <span>Wide</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="current-styles" id="currentStyles">
+        <span class="cs-label">Active:</span>
+        <span class="cs-tag" id="csSize">20px</span>
+        <span class="cs-tag" id="csColor" style="background:#1a1a2e;color:#fff;">Color</span>
+        <span class="cs-tag" id="csBg" style="display:none;">BG</span>
+        <span class="cs-tag" id="csStyles"></span>
+      </div>
+      <div class="action-btns">
+        <button class="btn-apply" id="applyAllBtn">⚡ Apply All (Chaining)</button>
+        <button class="btn-reset" id="resetBtn">↺ Reset</button>
+      </div>
+    </div>
+    <div class="chain-log">
+      <div class="chain-log-header">
+        <span class="chain-log-title"><span>🔗</span> jQuery Chain Log</span>
+        <button class="clear-log-btn" id="clearLogBtn">Clear</button>
+      </div>
+      <div class="chain-entries" id="chainEntries">
+        <p class="log-empty">Apply styles to see the jQuery chain here.</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Task 8 — Quiz Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── START SCREEN ── -->
+  <div class="screen" id="screen-start">
+    <div class="arcade-badge">Lab Task 08</div>
+    <h1 class="title">QUIZ<br><span>GAME</span></h1>
+    <p class="subtitle">10 questions · Multiple choice · Timed score</p>
+    <button class="btn-primary" id="btn-start">Press Start</button>
+    <div class="blink-hint">▼ tap to begin ▼</div>
+  </div>
+
+  <!-- ── QUIZ SCREEN ── -->
+  <div class="screen hidden" id="screen-quiz">
+    <div class="quiz-shell">
+
+      <div class="quiz-top">
+        <div class="q-counter" id="q-counter">Q 1 / 10</div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="score-live">Score <span id="live-score">0</span></div>
+      </div>
+
+      <div class="question-card" id="question-card">
+        <p class="q-text" id="q-text">Loading…</p>
+      </div>
+
+      <ul class="options" id="options-list">
+        <!-- injected by JS -->
+      </ul>
+
+      <div class="quiz-bottom">
+        <button class="btn-next hidden" id="btn-next">Next →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── RESULT SCREEN ── -->
+  <div class="screen hidden" id="screen-result">
+    <div class="result-shell">
+      <div class="arcade-badge">Game Over</div>
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="50"
+                  stroke-dasharray="314" stroke-dashoffset="314"/>
+        </svg>
+        <div class="ring-label">
+          <span class="ring-num" id="ring-num">0</span>
+          <span class="ring-sub">/ 10</span>
+        </div>
+      </div>
+      <p class="result-msg" id="result-msg">—</p>
+      <div class="result-breakdown" id="result-breakdown"></div>
+      <button class="btn-primary" id="btn-restart">Play Again</button>
+    </div>
+  </div>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
