@@ -1,0 +1,91 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+}
+
+/* Page Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* Page Title */
+.title {
+  font-size: 32px;
+  color: #1a1a2e;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Course List Wrapper */
+.course-wrapper {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* Individual Course Card */
+.course-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.course-card:hover {
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  transform: scale(1.01);
+}
+
+/* Course Header Row */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Course Title */
+.course-name {
+  font-size: 17px;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+/* Online / Offline Badge */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.online {
+  background-color: #e8f0fe;
+  color: #3949ab;
+}
+
+.offline {
+  background-color: #fce4ec;
+  color: #c62828;
+}
+
+/* Instructor / Duration Text */
+.course-info {
+  font-size: 14px;
+  color: #555;
+  margin-top: 6px;
+}

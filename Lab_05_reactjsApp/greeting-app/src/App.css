@@ -1,0 +1,124 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(160deg, #0f0c29, #302b63, #24243e);
+}
+
+/* Page Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* Page Title */
+.title {
+  font-size: 34px;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #9ca3af;
+  font-size: 15px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* Cards Row */
+.greeting-wrapper {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Individual Greeting Card */
+.greeting-card {
+  border-radius: 20px;
+  padding: 32px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.greeting-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Emoji */
+.emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* Time Label Badge */
+.time-label {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #555;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Good Morning / Afternoon text */
+.greeting-text {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+/* Name */
+.greeting-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #667eea;
+  margin-bottom: 14px;
+}
+
+/* Message */
+.greeting-message {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Night card - light text on dark background */
+.night-card .time-label {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #aaa;
+}
+
+.night-card .greeting-text {
+  color: #cbd5e1;
+}
+
+.night-card .greeting-name {
+  color: #818cf8;
+}
+
+.night-card .greeting-message {
+  color: #94a3b8;
+}

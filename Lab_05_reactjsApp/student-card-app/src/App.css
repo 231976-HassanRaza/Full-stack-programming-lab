@@ -1,0 +1,95 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+}
+
+/* Page Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Page Title */
+.title {
+  font-size: 32px;
+  color: #1a1a2e;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Cards Row */
+.card-wrapper {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Individual Card */
+.card {
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  padding: 28px 32px;
+  width: 280px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar Circle */
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Student Name */
+.student-name {
+  font-size: 20px;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+/* Roll Number */
+.roll-no {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* Divider Line */
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 12px 0;
+}
+
+/* Department / University */
+.info {
+  font-size: 14px;
+  color: #555;
+  margin: 6px 0;
+}
