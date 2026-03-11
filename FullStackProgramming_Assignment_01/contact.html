@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – AquaLux</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav class="navbar"><div class="container">
+  <a href="index.html" class="navbar-brand">Aqua<span>Lux</span></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="category.html">Shop</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="active">Contact</a></li></ul>
+  <div class="nav-icons"><a href="my-account.html"><i class="bi bi-person"></i></a><a href="cart.html" style="position:relative"><i class="bi bi-bag"></i><span class="cart-badge">3</span></a></div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</div></nav>
+
+<div class="page-header"><div class="container"><h1>Contact Us</h1><div class="breadcrumb" style="color:rgba(255,255,255,0.7)"><a href="index.html" style="color:rgba(255,255,255,0.8)">Home</a> <span>/</span> Contact</div></div></div>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <!-- CONTACT INFO -->
+      <div class="col-4">
+        <div class="contact-info-card">
+          <h3>Get In Touch</h3>
+          <div class="contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div><h5>Address</h5><p>123 Spa Boulevard, New York, NY 10001, USA</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div><h5>Phone</h5><p>+1 (800) 275-2843</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div><h5>Email</h5><p>support@aqualux.com</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-clock-fill"></i>
+            <div><h5>Hours</h5><p>Mon–Fri: 9am–6pm EST<br/>Sat: 10am–4pm EST</p></div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="map-placeholder mt-3"><span><i class="bi bi-map"></i> Map Placeholder</span></div>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="col-8">
+        <div class="account-card">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name</label><input type="text" id="contactName" class="form-control validate-name" placeholder="John Doe" /><span class="error-msg"></span></div>
+              <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" class="form-control validate-email" placeholder="you@example.com" /><span class="error-msg"></span></div>
+            </div>
+            <div class="form-group"><label>Phone (Optional)</label><input type="tel" class="form-control" placeholder="+1 (555) 000-0000" /></div>
+            <div class="form-group"><label>Subject</label><input type="text" id="contactSubject" class="form-control validate-required" placeholder="How can we help?" /><span class="error-msg"></span></div>
+            <div class="form-group"><label>Department</label>
+              <select class="form-control">
+                <option>General Inquiry</option>
+                <option>Sales & Pricing</option>
+                <option>Technical Support</option>
+                <option>Warranty & Returns</option>
+                <option>Delivery & Installation</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea id="contactMessage" class="form-control validate-required" rows="5" placeholder="Describe how we can help you..."></textarea><span class="error-msg"></span></div>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Send Message</button>
+          </form>
+        </div>
+
+        <!-- FAQ -->
+        <div class="account-card mt-3">
+          <h3>Frequently Asked Questions</h3>
+          <div id="faqAccordion">
+            <div style="border-bottom:1px solid var(--border);padding:16px 0">
+              <button class="faq-q" style="background:none;border:none;cursor:pointer;font-weight:600;font-size:0.95rem;text-align:left;width:100%;display:flex;justify-content:space-between" onclick="toggleFaq(this)">
+                Do you offer installation services? <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="faq-a" style="color:var(--gray);font-size:0.9rem;line-height:1.7;padding-top:10px;display:none">Yes! We offer professional installation services in most areas. Our certified technicians will handle delivery, placement, and electrical connection. Contact us for availability in your area.</div>
+            </div>
+            <div style="border-bottom:1px solid var(--border);padding:16px 0">
+              <button class="faq-q" style="background:none;border:none;cursor:pointer;font-weight:600;font-size:0.95rem;text-align:left;width:100%;display:flex;justify-content:space-between" onclick="toggleFaq(this)">
+                What warranty comes with my hot tub? <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="faq-a" style="color:var(--gray);font-size:0.9rem;line-height:1.7;padding-top:10px;display:none">All AquaLux hot tubs come with a 5-year structural warranty and a 2-year equipment warranty covering pumps, heaters, and controls.</div>
+            </div>
+            <div style="padding:16px 0">
+              <button class="faq-q" style="background:none;border:none;cursor:pointer;font-weight:600;font-size:0.95rem;text-align:left;width:100%;display:flex;justify-content:space-between" onclick="toggleFaq(this)">
+                Can I finance my purchase? <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="faq-a" style="color:var(--gray);font-size:0.9rem;line-height:1.7;padding-top:10px;display:none">Absolutely! We offer flexible financing options with 0% APR for qualified buyers on purchases over $2,000. Apply online at checkout or contact our team for details.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><h4>AquaLux</h4><div class="footer-brand"><p>Premium hot tubs and swim spas since 2005.</p></div></div>
+    <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="category.html">Shop</a></li></ul></div>
+    <div><h4>Account</h4><ul><li><a href="login.html">Login</a></li><li><a href="register.html">Register</a></li></ul></div>
+    <div><h4>Support</h4><ul><li><a href="terms.html">Terms</a></li><li><a href="contact.html">Help</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 AquaLux.</span></div>
+</div></footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="js/main.js"></script>
+<script>
+function toggleFaq(btn){
+  const ans = $(btn).next('.faq-a');
+  const icon = $(btn).find('i');
+  ans.slideToggle(200);
+  icon.toggleClass('bi-chevron-down bi-chevron-up');
+}
+</script>
+</body></html>
