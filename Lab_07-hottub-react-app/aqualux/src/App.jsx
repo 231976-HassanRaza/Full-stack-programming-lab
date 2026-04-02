@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
-//  Tayyab Pages
+// Tayyab Pages
 import HomePage from "./pages/shop/HomePage";
 import CategoryPage from "./pages/shop/CategoryPage";
 import ProductPage from "./pages/shop/ProductPage";
@@ -24,7 +24,9 @@ import OrderSummaryPage from "./pages/cart/OrderSummaryPage";
 import AboutPage from "./pages/cart/AboutPage";
 import ContactPage from "./pages/cart/ContactPage";
 
-const NO_FOOTER_PAGES = ["login", "register", "forgot-password"];
+import NotFoundPage from "./pages/NotFoundPage";
+
+const NO_FOOTER_PAGES = ["login", "register", "forgot-password", "not-found"];
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -40,20 +42,24 @@ export default function App() {
 
   const renderPage = () => {
     switch (page) {
-      case "home":          return <HomePage navigate={navigate} />;
-      case "category":      return <CategoryPage navigate={navigate} />;
-      case "product":       return <ProductPage product={selectedProduct} navigate={navigate} />;
-      case "cart":          return <CartPage navigate={navigate} />;
-      case "checkout":      return <CheckoutPage navigate={navigate} />;
+      case "home": return <HomePage navigate={navigate} />;
+      case "category": return <CategoryPage navigate={navigate} />;
+      case "product": return <ProductPage product={selectedProduct} navigate={navigate} />;
+      case "cart": return <CartPage navigate={navigate} />;
+      case "checkout": return <CheckoutPage navigate={navigate} />;
       case "order-summary": return <OrderSummaryPage navigate={navigate} />;
-      case "login":         return <LoginPage navigate={navigate} />;
-      case "register":      return <RegisterPage navigate={navigate} />;
+      case "login": return <LoginPage navigate={navigate} />;
+      case "register": return <RegisterPage navigate={navigate} />;
       case "forgot-password": return <ForgotPasswordPage navigate={navigate} />;
-      case "account":       return <AccountPage navigate={navigate} />;
-      case "terms":         return <TermsPage navigate={navigate} />;
-      case "about":         return <AboutPage navigate={navigate} />;
-      case "contact":       return <ContactPage navigate={navigate} />;
-      default:              return <HomePage navigate={navigate} />;
+      case "account": return <AccountPage navigate={navigate} />;
+      case "terms": return <TermsPage navigate={navigate} />;
+      case "about": return <AboutPage navigate={navigate} />;
+      case "contact": return <ContactPage navigate={navigate} />;
+
+      default:
+
+        if (page !== "not-found") setPage("not-found");
+        return <NotFoundPage navigate={navigate} />;
     }
   };
 
