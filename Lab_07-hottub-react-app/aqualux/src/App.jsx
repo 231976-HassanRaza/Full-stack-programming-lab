@@ -5,19 +5,19 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
-// ── PERSON 1 PAGES ──
+//  Tayyab Pages
 import HomePage from "./pages/shop/HomePage";
 import CategoryPage from "./pages/shop/CategoryPage";
 import ProductPage from "./pages/shop/ProductPage";
 
-// ── PERSON 2 PAGES ──
+// ── Hassan Pages
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import AccountPage from "./pages/account/AccountPage";
 import TermsPage from "./pages/account/TermsPage";
 
-// ── PERSON 3 PAGES ──
+// Musab Pages
 import CartPage from "./pages/cart/CartPage";
 import CheckoutPage from "./pages/cart/CheckoutPage";
 import OrderSummaryPage from "./pages/cart/OrderSummaryPage";
