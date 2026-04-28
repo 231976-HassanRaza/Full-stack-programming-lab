@@ -1,0 +1,18 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables (keep secrets safe)
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
