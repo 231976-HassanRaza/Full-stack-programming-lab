@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a3a5c;
+  --secondary: #2e86ab;
+  --accent: #f4a261;
+  --light-bg: #f0f4f8;
+  --dark: #1a1a2e;
+  --gray: #6c757d;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  a { text-decoration: none; }
+}
+
+@layer components {
+  .btn-primary-custom {
+    @apply bg-accent text-white px-7 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-lg;
+  }
+  .btn-outline-custom {
+    @apply border-2 border-white text-white px-7 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:bg-white hover:text-primary;
+  }
+  .btn-secondary-custom {
+    @apply bg-secondary text-white px-5 py-2 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:bg-opacity-90 text-sm;
+  }
+  .section-heading {
+    @apply text-3xl font-bold text-primary mb-3;
+  }
+  .input-field {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+  .page-header {
+    @apply bg-primary text-white py-12;
+  }
+  .breadcrumb-link {
+    @apply text-white/80 hover:text-accent transition;
+  }
+}
