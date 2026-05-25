@@ -10,14 +10,14 @@ This lab contains two RESTful APIs built with **Node.js + Express.js** that inte
 
 | Task | API | External Service |
 |------|-----|-----------------|
-| Task 1 | Weather Forecast API | OpenWeatherMap |
+| Task 1 | Weather Forecast API | WeatherAPI.com |
 | Task 2 | News Headlines API | NewsAPI.org |
 
 ---
 
 ## 🔑 How to Get API Keys
 
-### Task 1 – OpenWeatherMap API Key
+### Task 1 – WeatherAPI key
 1. Go to [WeatherAPI.com](WeatherAPI.com)
 2. Click **Sign In / Create Account** (free)
 3. Sign up free → verify email
@@ -130,29 +130,6 @@ http://localhost:5000/api/weather/Dubai
 http://localhost:5000/api/weather/New York
 ```
 
-**Sample Response:**
-```json
-{
-  "success": true,
-  "city": "Islamabad",
-  "country": "PK",
-  "temperature": {
-    "current": "32°C",
-    "feelsLike": "35°C",
-    "min": "28°C",
-    "max": "36°C"
-  },
-  "condition": {
-    "main": "Clear",
-    "description": "clear sky",
-    "icon": "https://openweathermap.org/img/wn/01d@2x.png"
-  },
-  "humidity": "45%",
-  "windSpeed": "3.5 m/s",
-  "visibility": "10.0 km",
-  "fetchedAt": "2026-05-24T10:00:00.000Z"
-}
-```
 
 ---
 
@@ -173,26 +150,8 @@ http://localhost:5001/api/news/ae    → UAE
 http://localhost:5001/api/news/sa    → Saudi Arabia
 ```
 
-**Sample Response:**
-```json
-{
-  "success": true,
-  "country": "PK",
-  "totalResultsFromAPI": 35,
-  "articlesReturned": 10,
-  "fetchedAt": "2026-05-24T10:00:00.000Z",
-  "headlines": [
-    {
-      "index": 1,
-      "title": "Pakistan wins T20 series against New Zealand",
-      "source": "Dawn News",
-      "url": "https://www.dawn.com/...",
-      "publishedAt": "May 24, 2026, 9:00 AM",
-      "description": "Pakistan cricket team..."
-    }
-  ]
-}
-```
+
+
 
 ---
 
