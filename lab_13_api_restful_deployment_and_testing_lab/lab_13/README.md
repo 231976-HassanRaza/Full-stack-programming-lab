@@ -18,11 +18,10 @@ This lab contains two RESTful APIs built with **Node.js + Express.js** that inte
 ## 🔑 How to Get API Keys
 
 ### Task 1 – OpenWeatherMap API Key
-1. Go to [https://openweathermap.org/api](https://openweathermap.org/api)
+1. Go to [WeatherAPI.com](WeatherAPI.com)
 2. Click **Sign In / Create Account** (free)
-3. After login → go to **API Keys** tab
-4. Copy the default key (or generate a new one)
-5. ⚠️ New keys take **10–15 minutes** to activate
+3. Sign up free → verify email
+4. Copy your API key from dashboard — works immediately
 
 ### Task 2 – NewsAPI Key
 1. Go to [https://newsapi.org/](https://newsapi.org/)
